@@ -1,0 +1,11 @@
+.user-name{
+    padding:  10px;
+    margin-bottom: 10px;
+    background-color: rgb(201, 201, 201);
+}
+.user-email{
+    border: 1px solid black;
+}
+.user-body{
+    background-color: rgb(201, 201, 201);
+}
