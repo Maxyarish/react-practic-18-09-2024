@@ -3,8 +3,8 @@ import Product from './Сomponents/ProductsTable/ProductTable';
 
 function App() {
   return <>
+  <Product/>
  <UsersSection/>
- <Product/>
   </>
 }
 
