@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types'
 import Icon from '@mdi/react';
-import { mdiThumbUp,mdiThumbDownOutline, mdiNull } from '@mdi/js';
+import { mdiThumbUp,mdiThumbDownOutline, } from '@mdi/js';
 import styles from './UserProfile.module.css'
 const UserProfile = (props) => {
     const {user:{name='Anonim',age=0,email='anonim@gmail.com'}}=props;
@@ -37,6 +38,13 @@ if (isDelete)return null
             </p>
         </article>
     );
+}
+UserProfile.propTypes={
+    user:PropTypes.shape({
+    name:PropTypes.string.isRequired,
+    age:PropTypes.number.isRequired,
+    email:PropTypes.string.isRequired,
+})
 }
 
 export default UserProfile;
