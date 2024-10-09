@@ -1,18 +1,34 @@
+import { useState } from 'react';
 import ProductTable from './ProductsTable/ProductTable';
 import data from './data'
 import Cart from '../Shop/Cart/Cart';
 const Shop = () => {
     const [products, setProducts] = useState(data);
-    const [cardProducts, setCardProducts] = useState([])
+    const [cartProducts, setCartProducts] = useState([])
+  const addNewProduct=(id)=>{
+    const productsAfterAdd=products.map((product)=>{
+        if (product.id===id) {
+            product.quantity--
+            return product
+        }
+        return product
+    })
+    setProducts(productsAfterAdd)
+    const [newProduct]=products.filter((product)=>product.id===id);
+   if (cartProducts.includes(newProduct)) {
+       newProduct.quantityInCart++
+    }else{
+      newProduct.quantityInCart=1
+    }
+    const newCartProducts=[...new Set([...cartProducts,newProduct])]
+  setCartProducts(newCartProducts)
+}
     return(
         <>
-            <h1>shop</h1>
-            <ProductTable products={products}/>
-            <h2>cart</h2>
-            <Cart cartProducts={cardProducts}/>
+            <ProductTable products={products} addNewProduct={addNewProduct}/>
+            <Cart cartProducts={cartProducts}/>
         </>
     );
 }
-
 
 export default Shop;

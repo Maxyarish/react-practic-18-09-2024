@@ -1,12 +1,15 @@
+import products from '../data';
 import Products from './Product'
-import product from  '../data'
 import styles from './Product.module.css'
+import { PropTypes } from 'prop-types';
 
-const ProductTable = () => {
-    const showProduct=(product)=>(<Products key={product.id} product={product}/>);
+const ProductTable = (props) => {
+    const {products,addNewProduct}=props;
+    const showProduct=(product)=>
+        (<Products key={product.id} product={product} addNewProduct={addNewProduct}/>);
     return (
         <>
-        <table className={styles['table']}>
+        <table className={styles.table}>
         <thead>
             <tr>
                 <th>Title:</th>
@@ -15,11 +18,14 @@ const ProductTable = () => {
             </tr>
         </thead>
         <tbody>
-{product.map(showProduct)}
+{products.map(showProduct)}
         </tbody>
         </table>
         </>
     );
 }
-
+ProductTable.PropTypes={
+    products:PropTypes.array,
+    addNewProduct:PropTypes.array,
+}
 export default ProductTable;
