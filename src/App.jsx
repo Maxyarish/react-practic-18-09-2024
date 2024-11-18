@@ -1,7 +1,7 @@
-import QuizPage from './pages/QuizPage';
+
 function App() {
   return <>
-  <QuizPage/>
+  1234
   </>
 }
 

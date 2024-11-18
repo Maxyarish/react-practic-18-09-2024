@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types'
 import Icon from '@mdi/react';
 import { mdiThumbUp,mdiThumbDownOutline, } from '@mdi/js';
-import styles from './UserProfile.module.css'
+import styles from './UserProfile.module.scss'
 const UserProfile = (props) => {
     const {user:{name='Anonim',age=0,email='anonim@gmail.com'}}=props;
     const [isSelect, setIsSelect] = useState(true);
@@ -29,8 +29,8 @@ if (isDelete)return null
     return (
     <article onClick={changeIsSelect} className={styles['user-profile']} style={{border:borderSelect}}>
             <button onClick={changeIsDelete}>X</button>
-            <h1>name: {name}</h1>
-            <h2 >age: {age}</h2>
+            <h2>name: <span>{name}</span></h2>
+            <h3 >age: {age}</h3>
             <p>email: {email}</p>
             <p className={styles.flex}>
                 <span onClick={addLike}><Icon path={mdiThumbUp} size={1}/></span> <span>{amount}</span>

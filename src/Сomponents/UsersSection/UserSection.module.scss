@@ -1,0 +1,8 @@
+@use '/src/common/styles/misins.scss' as *;
+.container{
+    @include flex(row,wrap,space-around,stretch)
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: center;
+    //align-items: center;
+}

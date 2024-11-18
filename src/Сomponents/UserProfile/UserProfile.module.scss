@@ -1,0 +1,24 @@
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/misins.scss' as *;
+$indent: 2em;
+.user-profile{
+    padding: $indent;  
+    margin-bottom: $indent;
+    background-color: $secondatyBgColor;
+    border: 2px solid black;
+    max-width: 250px;
+    margin: auto;
+    h2>span{
+        color: $accentColor;
+    }
+}
+.flex{
+    font-size: 1.5em;
+    @include flexs(row,wrap,center,center);
+    span{
+        color: $infoColor;
+    }
+}
+.amount{
+    padding:  0 $indent*2;
+}
